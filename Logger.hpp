@@ -16,7 +16,7 @@ private:
 
     Logger();
     ~Logger();
-    std::string strFormat(const std::string&, const std::string&);
+    std::string logFormat(const std::string&, const std::string&);
 public:
     Logger(const Logger&) = delete;
     void operator=(const Logger&) = delete;

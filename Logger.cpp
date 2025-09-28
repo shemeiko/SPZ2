@@ -20,7 +20,7 @@ Logger& Logger::getInstance() {
     return instance;
 }
 
-std::string Logger::strFormat(const std::string& level, const std::string& message) {
+std::string Logger::logFormat(const std::string& level, const std::string& message) {
     if (format.length() == 0)
         throw std::length_error("use method setTimestampFormat to set format");
 
@@ -59,5 +59,5 @@ void Logger::log(LogLevel level, const std::string& message) {
     }
 
     if (outputFile.is_open())
-        outputFile << strFormat(levelStr, message) << '\n';
+        outputFile << logFormat(levelStr, message) << '\n';
 }
