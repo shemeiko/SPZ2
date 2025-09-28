@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
         }
 
         uintmax_t size = fs::file_size(filepath);
-        logger.log(LogLevel::INFO, std::format("File [{}] has been checked on size ({} bytes)", argv[1], size));
+        logger.log(LogLevel::INFO, std::format("File {} has been checked on size ({} bytes)", argv[1], size));
 
         std::cout << "File " << argv[1] << " (" << size << " bytes)" << '\n';
     }

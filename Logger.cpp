@@ -36,8 +36,9 @@ void Logger::setTimestampFormat(const std::string& format) {
 
 void Logger::openLogFile(const std::string& filename) {
     std::lock_guard<std::mutex> guard(mutex);
-    outputFile.open(filename, std::ios::app);
-    if (!(outputFile && outputFile.is_open()))
+
+    outputFile.open(filename, std::ios::out | std::ios::app);
+    if (!outputFile.is_open()))
         throw std::runtime_error("file doesn't open");
 }
 
