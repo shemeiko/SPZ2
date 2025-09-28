@@ -12,7 +12,7 @@ private:
     static std::mutex mutex;
     std::ofstream outputFile;
     std::string format = "%H:%M:%S";
-    LogLevel lowBoundLevel = LogLevel::ALL;
+    LogLevel lowerBoundLevel = LogLevel::ALL;
 
     Logger();
     ~Logger();
