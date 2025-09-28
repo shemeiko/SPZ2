@@ -26,7 +26,7 @@ std::string Logger::logFormat(const std::string& level, const std::string& messa
 
     time_t raw_time = std::time(nullptr);
     char timeString[100];
-    strftime(std::data(timeString), sizeof(timeString), format.c_str(), std::localtime(&raw_time));
+    strftime(timeString, sizeof(timeString), format.c_str(), std::localtime(&raw_time));
     return std::format("{}: {} [{}]: {}", level, timeString, "Logger", message);
 }
 
@@ -38,18 +38,18 @@ void Logger::openLogFile(const std::string& filename) {
     std::lock_guard<std::mutex> guard(mutex);
 
     outputFile.open(filename, std::ios::out | std::ios::app);
-    if (!outputFile.is_open()))
+    if (!outputFile.is_open())
         throw std::runtime_error("file doesn't open");
 }
 
 void Logger::setLevel(LogLevel level) {
-    lowBoundLevel = level;
+    lowerBoundLevel = level;
 }
 
 void Logger::log(LogLevel level, const std::string& message) {
     std::lock_guard<std::mutex> lg(mutex);
 
-    if (level < lowBoundLevel) return;
+    if (level < lowerBoundLevel) return;
 
     std::string levelStr;
     switch (level) {
