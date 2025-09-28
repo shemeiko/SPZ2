@@ -20,6 +20,8 @@ private:
 public:
     Logger(const Logger&) = delete;
     void operator=(const Logger&) = delete;
+    Logger(Logger&&) = delete;
+    Logger& operator=(Logger&&) = delete;
 
     static Logger& getInstance();
     void setTimestampFormat(const std::string&);
