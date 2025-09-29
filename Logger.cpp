@@ -57,6 +57,7 @@ void Logger::log(LogLevel level, const std::string& message) {
         case LogLevel::DEBUG: levelStr = "DEBUG"; break;
         case LogLevel::WARNING: levelStr = "WARNING"; break;
         case LogLevel::ERROR: levelStr = "ERROR"; break;
+        case LogLevel::ALL: levelStr = "ALL"; break;
     }
 
     if (outputFile.is_open())
