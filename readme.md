@@ -1,4 +1,5 @@
-# LAB2: Singleton Implementation
+# LAB2: Singleton Pattern Implementation
 
-## Theme: Singleton pattern implementation
-## Purpose: Implement Singleton pattern on theme "Logging system"
+Theme: Singleton pattern implementation
+
+Purpose: Implement Singleton pattern on theme "Logging system"
